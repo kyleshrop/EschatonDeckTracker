@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hot_pink"
+    android:padding="16dp"
+    tools:context=".ui.PlayerDeckFragment">
+
+    <!-- RecyclerView to display the list of cards -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/player_hand_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_conclave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Existing buttons or other UI elements go here -->
+
+
+    <Button
+        android:id="@+id/button_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="272dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/book"
+        android:textColor="@color/shadow"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_conclave"
+        app:layout_constraintStart_toStartOf="@+id/player_hand_recycler_view" />
+
+    <Button
+        android:id="@+id/button_conclave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/conclave"
+        android:textColor="@color/shadow"
+        app:layout_constraintEnd_toStartOf="@+id/button_remove_card"
+        app:layout_constraintStart_toEndOf="@+id/player_hand_recycler_view"
+        app:layout_constraintTop_toTopOf="@+id/player_hand_recycler_view" />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:backgroundTint="@color/pink"
+        android:text="Reset"
+        android:textColor="@color/shadow"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_book"
+        app:layout_constraintStart_toStartOf="@+id/player_hand_recycler_view" />
+
+    <Button
+        android:id="@+id/button_remove_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="295dp"
+        android:backgroundTint="@color/pink"
+        android:text="Remove"
+        android:textColor="@color/shadow"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_conclave" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
