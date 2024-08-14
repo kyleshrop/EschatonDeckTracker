@@ -1,18 +1,19 @@
 package com.example.eschatondecktraker
 
-
+import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.data.MonsterCardBase
 import kotlin.random.Random
 
 class NeutralDeck {
-    private val deck: MutableList<MonsterCardBase.Card> = mutableListOf()
+    private val deck: MutableList<Card> = mutableListOf()
 
     init {
         // Add all unique MonsterCards to the deck
         for (monsterName in MonsterCardBase.MonsterName.values()) {
-            val card = MonsterCardBase.Card.create(monsterName)
+            val card = MonsterCardBase.create(monsterName)
             deck.add(card)
         }
+        shuffle()
     }
 
     // Shuffle the deck
@@ -20,13 +21,13 @@ class NeutralDeck {
         deck.shuffle()
     }
 
-    // Draw a card from the deck
-    fun drawCard(): MonsterCardBase.Card? {
-        if (deck.isNotEmpty()) {
+    // Draw a random card from the deck
+    fun drawCard(): Card? {
+        return if (deck.isNotEmpty()) {
             val randomIndex = Random.nextInt(deck.size)  // Generate a random index within the bounds of the deck
-            shuffle()
-            return deck.removeAt(randomIndex)  // Remove the card at the random index and return it
+            deck.removeAt(randomIndex)
+        } else {
+            null  // Return null if the deck is empty
         }
-        return null  // Return null if the deck is empty
     }
 }

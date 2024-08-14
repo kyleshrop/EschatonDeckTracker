@@ -13,9 +13,9 @@ import com.example.eschatondecktraker.data.CultistCardBase
 import com.example.eschatondecktraker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val initiateCard = CultistCardBase.Card.create(CultistCardBase.CultistName.Initiate)
-    private val acolyteCard = CultistCardBase.Card.create(CultistCardBase.CultistName.Acolyte)
-    private val fanaticCard= CultistCardBase.Card.create(CultistCardBase.CultistName.Fanatic)
+    private val initiateCard = CultistCardBase.create(CultistCardBase.CultistName.Initiate)
+    private val acolyteCard = CultistCardBase.create(CultistCardBase.CultistName.Acolyte)
+    private val fanaticCard= CultistCardBase.create(CultistCardBase.CultistName.Fanatic)
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding

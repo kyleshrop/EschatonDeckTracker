@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eschatondecktraker.NeutralDeck
 import com.example.eschatondecktraker.R
+import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.databinding.PlayerDeckFregmentBinding
 
 /**
@@ -22,8 +23,6 @@ class PlayerDeckFragment : Fragment() {
 
     private var _binding: PlayerDeckFregmentBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -39,7 +38,8 @@ class PlayerDeckFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = PlayerHandAdapter(hand.cultistCardsInHand, hand.monsterCardsInHand)
+        val combinedCards: List<Card> = hand.cultistCardsInHand + hand.monsterCardsInHand
+        val adapter = PlayerHandAdapter(combinedCards)
         binding.playerHandRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.playerHandRecyclerView.adapter = adapter
 

@@ -3,11 +3,12 @@ package com.example.eschatondecktraker.data
 data class Card(
     val cultistName: CultistCardBase.CultistName?,
     val monsterName: MonsterCardBase.MonsterName?,
-    val zeal: CultistCardBase.Zeal,
-    val divination: CultistCardBase.Divination,
-    val influence: CultistCardBase.Influence,
-    val aggression: CultistCardBase.Aggression,
+    val cost: CultistCardBase.Cost?,
+    val zeal: CardAttributes.Zeal,
+    val divination: CardAttributes.Divination,
+    val influence: CardAttributes.Influence,
+    val aggression: CardAttributes.Aggression,
     val scour: CultistCardBase.Scour?,
-    val inspire: CultistCardBase.Inspire,
-    val pointValue: MonsterCardBase.PointValue
+    val inspire: CardAttributes.Inspire,
+    val pointValue1: CardAttributes.PointValue?,
 )

@@ -11,7 +11,7 @@ import android.widget.GridLayout
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.eschatondecktraker.R
-import com.example.eschatondecktraker.data.CultistCardBase
+import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.databinding.ConclaveStoreFragmentBinding
 
 /**
@@ -63,10 +63,10 @@ class ConclaveStoreFragment : Fragment() {
             }
         }
     }
-        fun selectCultistCard(card: CultistCardBase.Card) {
-            // Handle the card selection logic here
-            Toast.makeText(context, "Selected: ${card.cultistName}", Toast.LENGTH_SHORT).show()
-        }
+    fun selectCultistCard(card: Card) {
+        // Handle the card selection logic here
+        Toast.makeText(context, "Selected: ${card.cultistName}", Toast.LENGTH_SHORT).show()
+    }
 
 
     override fun onDestroyView() {

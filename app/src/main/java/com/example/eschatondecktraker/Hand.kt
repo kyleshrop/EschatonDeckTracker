@@ -1,29 +1,29 @@
-import com.example.eschatondecktraker.data.CultistCardBase
-import com.example.eschatondecktraker.data.MonsterCardBase
+import com.example.eschatondecktraker.data.Card
+
 import kotlin.random.Random
 
 class Hand {
-    val cultistCardsInHand: MutableList<CultistCardBase.Card> = mutableListOf()
-    val monsterCardsInHand: MutableList<MonsterCardBase.Card> = mutableListOf()
+    val cultistCardsInHand: MutableList<Card> = mutableListOf()
+    val monsterCardsInHand: MutableList<Card> = mutableListOf()
 
-    fun addCultistCard(card: CultistCardBase.Card) {
+    fun addCultistCard(card: Card) {
         cultistCardsInHand.add(card)
     }
 
 
     fun addRandomMonsterCard() {
-        val monsterDeck: MutableList<MonsterCardBase.Card> = mutableListOf()
-            val randomIndex = Random.nextInt(monsterDeck.size)
-            val card = monsterDeck.removeAt(randomIndex)
-            monsterCardsInHand.add(card)
+        val monsterDeck: MutableList<Card> = mutableListOf()
+        val randomIndex = Random.nextInt(monsterDeck.size)
+        val card = monsterDeck.removeAt(randomIndex)
+        monsterCardsInHand.add(card)
     }
 
 
-    fun removeCultistCard(card: CultistCardBase.Card): Boolean {
+    fun removeCultistCard(card: Card): Boolean {
         return cultistCardsInHand.remove(card)
     }
 
-    fun removeMonsterCard(card: MonsterCardBase.Card): Boolean {
+    fun removeMonsterCard(card: Card): Boolean {
         return monsterCardsInHand.remove(card)
     }
 
