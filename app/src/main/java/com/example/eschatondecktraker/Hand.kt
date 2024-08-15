@@ -27,7 +27,7 @@ class Hand {
         return monsterCardsInHand.remove(card)
     }
 
-    fun showHand(): List<Any> {
+    fun showHand(): List<Card> {
         return cultistCardsInHand + monsterCardsInHand
     }
 

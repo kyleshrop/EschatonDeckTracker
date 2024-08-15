@@ -7,7 +7,9 @@ class CultistDeck {
     init {
         for (cultistName in CultistCardBase.CultistName.values()) {
             val card = CultistCardBase.create(cultistName)
-            cards.add(card)
+            repeat(20){
+                cards.add(card)
+            }
         }
         shuffle()
     }
