@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/fragment_player_deck">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/fragment_player_deck"
         android:name="com.example.eschatondecktraker.ui.PlayerDeckFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/player_deck_fregment">
@@ -17,12 +17,12 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.eschatondecktraker.CultistCard"
+        android:name="com.example.eschatondecktraker.ui.ConclaveStoreFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/conclave_store_fragment">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/fragment_player_deck" />
     </fragment>
 </navigation>
