@@ -19,17 +19,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Card Name"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textStyle="bold"
+        android:textColor="@color/text_primary"
         android:gravity="center"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="4dp"
+        android:shadowColor="@color/background"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:padding="2dp" />
 
     <TextView
         android:id="@+id/tvCardCost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cost: 0"
-        android:textSize="10sp"
-        android:gravity="center" />
+        android:textSize="12sp"
+        android:textColor="@color/text_secondary"
+        android:gravity="center"
+        android:padding="2dp" />
 
 </LinearLayout>

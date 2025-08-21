@@ -22,7 +22,18 @@
         <item name="android:statusBarColor">@color/primary_variant</item>
         <item name="android:navigationBarColor">@color/background</item>
         <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Popup menu styling (affects overflow menu only, not dialogs) -->
+        <item name="actionOverflowMenuStyle">@style/CustomOverflowMenuStyle</item>
+        <item name="android:actionOverflowMenuStyle">@style/CustomOverflowMenuStyle</item>
     </style>
 
     <style name="Theme.EschatonDeckTraker" parent="Base.Theme.EschatonDeckTraker" />
+    
+    <!-- Custom overflow menu style (targets action bar overflow menu specifically) -->
+    <style name="CustomOverflowMenuStyle" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">@color/surface</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

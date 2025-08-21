@@ -28,8 +28,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Neutral Deck"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:shadowColor="@color/background"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
 
     </LinearLayout>
 
