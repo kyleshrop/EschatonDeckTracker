@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.eschatondecktraker.R
 import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.data.CultistCardBase
 import com.example.eschatondecktraker.data.PlayerDeck
@@ -39,6 +41,10 @@ class CultistDeckFragment : Fragment() {
         adapter = DeckCardAdapter(cultistCards) { card ->
             playerDeck.addCard(card)
             Toast.makeText(requireContext(), "${getCardName(card)} added to deck!", Toast.LENGTH_SHORT).show()
+        }
+        
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_CultistDeckFragment_to_HomeFragment)
         }
         
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)

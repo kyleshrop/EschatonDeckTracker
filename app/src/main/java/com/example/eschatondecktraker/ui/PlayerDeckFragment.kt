@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.eschatondecktraker.R
 import com.example.eschatondecktraker.data.PlayerDeck
 import com.example.eschatondecktraker.databinding.FragmentPlayerDeckBinding
 
@@ -36,6 +38,10 @@ class PlayerDeckFragment : Fragment() {
         
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
+        
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_PlayerDeckFragment_to_HomeFragment)
+        }
         
         binding.btnReshuffle.setOnClickListener {
             playerDeck.reshuffleAll()

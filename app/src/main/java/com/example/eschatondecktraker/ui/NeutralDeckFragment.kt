@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.eschatondecktraker.R
 import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.data.MonsterCardBase
 import com.example.eschatondecktraker.data.PlayerDeck
@@ -41,6 +43,10 @@ class NeutralDeckFragment : Fragment() {
                 updateDisabledCards()
                 Toast.makeText(requireContext(), "${getCardName(card)} added to deck!", Toast.LENGTH_SHORT).show()
             }
+        }
+        
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_NeutralDeckFragment_to_HomeFragment)
         }
         
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
