@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Ember & Ash Theme -->
+    <color name="primary">#D32F2F</color>           <!-- Deep red -->
+    <color name="primary_variant">#B71C1C</color>   <!-- Darker red -->
+    <color name="secondary">#FF5722</color>         <!-- Orange red -->
+    <color name="secondary_variant">#D84315</color> <!-- Darker orange -->
+    
+    <color name="background">#212121</color>        <!-- Dark gray -->
+    <color name="surface">#303030</color>          <!-- Lighter dark gray -->
+    <color name="card_background">#424242</color>   <!-- Card background -->
+    
+    <color name="on_primary">#FFFFFF</color>        <!-- White text on primary -->
+    <color name="on_secondary">#FFFFFF</color>      <!-- White text on secondary -->
+    <color name="on_background">#E0E0E0</color>     <!-- Light gray text -->
+    <color name="on_surface">#FFFFFF</color>        <!-- White text on surface -->
+    
+    <color name="accent">#FFAB91</color>            <!-- Light orange accent -->
+    <color name="error">#F44336</color>             <!-- Bright red for errors -->
+    
+    <!-- Text contrast colors -->
+    <color name="text_primary">#FFFFFF</color>      <!-- Pure white for high contrast -->
+    <color name="text_secondary">#FFE0B2</color>    <!-- Warm cream for secondary text -->
+    <color name="text_tertiary">#FFCCBC</color>     <!-- Light peach for tertiary text -->
+    
+    <!-- Legacy colors for compatibility -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#d7273c</color>
-    <color name="pink">#ffcfd8</color>
-    <color name="hot_pink">#f17b99</color>
-    <color name="dark_red">#9a081a</color>
-    <color name="shadow">#1e1e1e</color>
-
+    <color name="red">#D32F2F</color>
+    <color name="pink">#FFAB91</color>
+    <color name="hot_pink">#D32F2F</color>
+    <color name="dark_red">#B71C1C</color>
+    <color name="shadow">#212121</color>
 </resources>
