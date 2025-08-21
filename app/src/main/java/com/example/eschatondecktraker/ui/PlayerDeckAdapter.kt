@@ -58,8 +58,8 @@ class PlayerDeckAdapter(
             binding.tvCardStatus.text = if (card.isDrawn) "Drawn" else "Available"
             binding.tvCardStatus.setTextColor(if (card.isDrawn) Color.GRAY else Color.GREEN)
             
-            // Set card image based on card name
-            val resourceName = card.getImageName()
+            // Set card image based on card name - always show front image in player deck
+            val resourceName = card.getImageName(showBackForOwned = false)
             val resourceId = binding.root.context.resources.getIdentifier(
                 resourceName, "drawable", binding.root.context.packageName
             )
