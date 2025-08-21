@@ -28,22 +28,32 @@ class PlayerDeckAdapter(
             
             binding.tvCardName.text = cardName
             
-            val stats = buildString {
-                append("Z:${card.zeal.value} ")
-                append("D:${card.divination.value} ")
-                append("I:${card.influence.value} ")
-                append("A:${card.aggression.value}")
-                if (card.scour != null && card.scour.value > 0) {
-                    append(" S:${card.scour.value}")
-                }
-                if (card.inspire.value > 0) {
-                    append(" In:${card.inspire.value}")
-                }
-                if (card.pointValue.value > 0) {
-                    append(" PV:${card.pointValue.value}")
-                }
+            // Display stats that have values > 0 (and scour only if not null)
+            val stats = mutableListOf<String>()
+            
+            if (card.zeal.value > 0) {
+                stats.add("Zeal: ${card.zeal.value}")
             }
-            binding.tvCardStats.text = stats
+            if (card.divination.value > 0) {
+                stats.add("Divination: ${card.divination.value}")
+            }
+            if (card.influence.value > 0) {
+                stats.add("Influence: ${card.influence.value}")
+            }
+            if (card.aggression.value > 0) {
+                stats.add("Aggression: ${card.aggression.value}")
+            }
+            if (card.scour?.value != null && card.scour.value > 0) {
+                stats.add("Scour: ${card.scour.value}")
+            }
+            if (card.inspire.value > 0) {
+                stats.add("Inspire: ${card.inspire.value}")
+            }
+            if (card.pointValue.value > 0) {
+                stats.add("Point Value: ${card.pointValue.value}")
+            }
+            
+            binding.tvCardStats.text = stats.joinToString(" | ")
             
             binding.tvCardStatus.text = if (card.isDrawn) "Drawn" else "Available"
             binding.tvCardStatus.setTextColor(if (card.isDrawn) Color.GRAY else Color.GREEN)
