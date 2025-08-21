@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.eschatondecktraker.MainActivity">
     <item
+        android:id="@+id/action_clear_deck"
+        android:orderInCategory="90"
+        android:title="@string/action_clear_deck"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

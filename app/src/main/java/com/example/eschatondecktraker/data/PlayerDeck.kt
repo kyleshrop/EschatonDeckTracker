@@ -45,6 +45,15 @@ class PlayerDeck private constructor() {
         ownedCards.forEach { it.isDrawn = false }
     }
     
+    fun clearDeck() {
+        ownedCards.clear()
+        // Add starting cards back (7 Initiates as in the base game)
+        repeat(7) {
+            val initiateCard = CultistCardBase.create(CultistCardBase.CultistName.Initiate)
+            ownedCards.add(initiateCard.copy(isOwned = true, isDrawn = false))
+        }
+    }
+    
     fun getTotalStats(): CardStats {
         val availableCards = getAvailableCards()
         return CardStats(

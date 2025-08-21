@@ -3,11 +3,13 @@ package com.example.eschatondecktraker
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.eschatondecktraker.data.PlayerDeck
 import com.example.eschatondecktraker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -39,8 +41,34 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_clear_deck -> {
+                showClearDeckConfirmation()
+                true
+            }
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+    
+    private fun showClearDeckConfirmation() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.clear_deck_confirmation_title)
+            .setMessage(R.string.clear_deck_confirmation_message)
+            .setPositiveButton(R.string.clear) { _, _ ->
+                clearPlayerDeck()
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+    
+    private fun clearPlayerDeck() {
+        PlayerDeck.getInstance().clearDeck()
+        // Navigate to home if not already there to refresh the UI
+        try {
+            val navController = findNavController(R.id.nav_host_fragment_content_main)
+            navController.navigate(R.id.HomeFragment)
+        } catch (e: Exception) {
+            // Navigation might fail if already on home or during transitions, that's okay
         }
     }
 
