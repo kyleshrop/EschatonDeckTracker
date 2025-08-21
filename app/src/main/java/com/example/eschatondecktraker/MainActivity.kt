@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun clearPlayerDeck() {
-        PlayerDeck.getInstance().clearDeck()
+        PlayerDeck.getInstance(this).clearDeck()
         // Navigate to home if not already there to refresh the UI
         try {
             val navController = findNavController(R.id.nav_host_fragment_content_main)

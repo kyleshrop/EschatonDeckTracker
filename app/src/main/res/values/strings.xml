@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_clear_deck">Clear Deck</string>
     <string name="clear_deck_confirmation_title">Clear Deck?</string>
-    <string name="clear_deck_confirmation_message">This will remove all cards from your deck and reset it to the default starting deck (7 Initiates). This action cannot be undone.</string>
+    <string name="clear_deck_confirmation_message">This will remove all cards from your deck and reset it to the default starting deck (3 Initiates, 3 Fanatics, 1 Acolyte). This action cannot be undone.</string>
     <string name="clear">Clear</string>
     <string name="cancel">Cancel</string>
     <!-- Strings used for fragments for navigation -->
@@ -22,6 +22,12 @@
     <string name="theme_system">System Default</string>
     <string name="theme_light">Light Mode</string>
     <string name="theme_dark">Dark Mode</string>
+    
+    <!-- Draft Mode Settings -->
+    <string name="draft_mode_setting">Draft Mode</string>
+    <string name="draft_mode_description">Choose whether to start with default cards or an empty deck</string>
+    <string name="draft_to_start_label">Draft to Start:</string>
+    <string name="draft_to_start_description">Start with an empty deck instead of default cards</string>
 
 
 

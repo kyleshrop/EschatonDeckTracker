@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        playerDeck = PlayerDeck.getInstance()
+        playerDeck = PlayerDeck.getInstance(requireContext())
         
         binding.btnViewDeck.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_PlayerDeckFragment)

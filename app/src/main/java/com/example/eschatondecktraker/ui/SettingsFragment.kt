@@ -21,6 +21,7 @@ class SettingsFragment : Fragment() {
     companion object {
         const val PREFS_NAME = "EschatonDeckTrackerPrefs"
         const val KEY_THEME_MODE = "theme_mode"
+        const val KEY_DRAFT_MODE = "draft_mode"
         const val THEME_LIGHT = "light"
         const val THEME_DARK = "dark"
         const val THEME_SYSTEM = "system"
@@ -40,6 +41,7 @@ class SettingsFragment : Fragment() {
         sharedPreferences = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         
         setupThemeControls()
+        setupDraftModeControls()
         setupBackButton()
     }
     
@@ -67,6 +69,19 @@ class SettingsFragment : Fragment() {
             
             // Apply theme immediately
             applyTheme(selectedTheme)
+        }
+    }
+    
+    private fun setupDraftModeControls() {
+        val isDraftMode = sharedPreferences.getBoolean(KEY_DRAFT_MODE, false)
+        
+        // Set initial switch state
+        binding.draftModeSwitch.isChecked = isDraftMode
+        
+        // Set up switch listener
+        binding.draftModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            // Save preference
+            sharedPreferences.edit().putBoolean(KEY_DRAFT_MODE, isChecked).apply()
         }
     }
     

@@ -32,7 +32,7 @@ class NeutralDeckFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        playerDeck = PlayerDeck.getInstance()
+        playerDeck = PlayerDeck.getInstance(requireContext())
         
         val monsterCards = MonsterCardBase.MonsterName.values()
             .map { 

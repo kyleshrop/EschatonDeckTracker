@@ -1,25 +1,48 @@
 package com.example.eschatondecktraker.data
 
-class PlayerDeck private constructor() {
+import android.content.Context
+import android.content.SharedPreferences
+
+class PlayerDeck private constructor(private val context: Context? = null) {
     private val ownedCards: MutableList<Card> = mutableListOf()
     
     init {
-        // Add starting cards (7 Initiates as in the base game)
-        repeat(7) {
-            val initiateCard = CultistCardBase.create(CultistCardBase.CultistName.Initiate)
-            ownedCards.add(initiateCard.copy(isOwned = true, isDrawn = false))
+        // Add starting cards based on draft mode setting
+        if (!isDraftMode()) {
+            addDefaultStartingCards()
         }
     }
     
     companion object {
         @Volatile
         private var INSTANCE: PlayerDeck? = null
+        private const val PREFS_NAME = "EschatonDeckTrackerPrefs"
+        private const val KEY_DRAFT_MODE = "draft_mode"
         
-        fun getInstance(): PlayerDeck {
+        fun getInstance(context: Context? = null): PlayerDeck {
             return INSTANCE ?: synchronized(this) {
-                INSTANCE ?: PlayerDeck().also { INSTANCE = it }
+                INSTANCE ?: PlayerDeck(context).also { INSTANCE = it }
             }
         }
+    }
+    
+    private fun isDraftMode(): Boolean {
+        return context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            ?.getBoolean(KEY_DRAFT_MODE, false) ?: false
+    }
+    
+    private fun addDefaultStartingCards() {
+        // Add starting cards (3 Initiates, 3 Fanatics, 1 Acolyte)
+        repeat(3) {
+            val initiateCard = CultistCardBase.create(CultistCardBase.CultistName.Initiate)
+            ownedCards.add(initiateCard.copy(isOwned = true, isDrawn = false))
+        }
+        repeat(3) {
+            val fanaticCard = CultistCardBase.create(CultistCardBase.CultistName.Fanatic)
+            ownedCards.add(fanaticCard.copy(isOwned = true, isDrawn = false))
+        }
+        val acolyteCard = CultistCardBase.create(CultistCardBase.CultistName.Acolyte)
+        ownedCards.add(acolyteCard.copy(isOwned = true, isDrawn = false))
     }
     
     fun addCard(card: Card) {
@@ -47,10 +70,9 @@ class PlayerDeck private constructor() {
     
     fun clearDeck() {
         ownedCards.clear()
-        // Add starting cards back (7 Initiates as in the base game)
-        repeat(7) {
-            val initiateCard = CultistCardBase.create(CultistCardBase.CultistName.Initiate)
-            ownedCards.add(initiateCard.copy(isOwned = true, isDrawn = false))
+        // Add starting cards back based on draft mode setting
+        if (!isDraftMode()) {
+            addDefaultStartingCards()
         }
     }
     

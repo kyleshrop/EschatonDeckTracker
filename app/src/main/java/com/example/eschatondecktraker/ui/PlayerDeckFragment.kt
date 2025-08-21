@@ -29,7 +29,7 @@ class PlayerDeckFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        playerDeck = PlayerDeck.getInstance()
+        playerDeck = PlayerDeck.getInstance(requireContext())
         
         adapter = PlayerDeckAdapter { card ->
             card.isDrawn = !card.isDrawn
