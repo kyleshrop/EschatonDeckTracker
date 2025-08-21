@@ -89,6 +89,24 @@ class PlayerDeck private constructor(private val context: Context? = null) {
             totalCards = availableCards.size
         )
     }
+    
+    fun getAverageStats(): AverageCardStats {
+        val availableCards = getAvailableCards()
+        val totalCards = availableCards.size.toDouble()
+        
+        return if (totalCards > 0) {
+            AverageCardStats(
+                zeal = availableCards.sumOf { it.zeal.value } / totalCards,
+                divination = availableCards.sumOf { it.divination.value } / totalCards,
+                influence = availableCards.sumOf { it.influence.value } / totalCards,
+                aggression = availableCards.sumOf { it.aggression.value } / totalCards,
+                scour = availableCards.sumOf { it.scour?.value ?: 0 } / totalCards,
+                inspire = availableCards.sumOf { it.inspire.value } / totalCards
+            )
+        } else {
+            AverageCardStats(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+        }
+    }
 }
 
 data class CardStats(
@@ -100,4 +118,13 @@ data class CardStats(
     val inspire: Int,
     val pointValue: Int,
     val totalCards: Int
+)
+
+data class AverageCardStats(
+    val zeal: Double,
+    val divination: Double,
+    val influence: Double,
+    val aggression: Double,
+    val scour: Double,
+    val inspire: Double
 )

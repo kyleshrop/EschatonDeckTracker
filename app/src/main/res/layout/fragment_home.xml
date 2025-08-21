@@ -39,7 +39,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Current Deck Stats"
+                android:text="Cumulative Deck Stats"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
@@ -128,6 +128,104 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/accent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Average Stat Values"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvAvgZeal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Zeal: 0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAvgDivination"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Divination: 0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAvgInfluence"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Influence: 0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAvgAggression"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Aggression: 0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvAvgScour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Scour: 0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAvgInspire"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Inspire: 0.0"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
 
                 </LinearLayout>
 

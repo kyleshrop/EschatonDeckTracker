@@ -57,6 +57,14 @@ class HomeFragment : Fragment() {
         binding.tvInspire.text = "Inspire: ${stats.inspire}"
         binding.tvPointValue.text = "Point Value: ${stats.pointValue}"
         binding.tvTotalCards.text = "Cards Remaining: ${stats.totalCards}"
+        
+        val avgStats = playerDeck.getAverageStats()
+        binding.tvAvgZeal.text = "Zeal: ${"%.1f".format(avgStats.zeal)}"
+        binding.tvAvgDivination.text = "Divination: ${"%.1f".format(avgStats.divination)}"
+        binding.tvAvgInfluence.text = "Influence: ${"%.1f".format(avgStats.influence)}"
+        binding.tvAvgAggression.text = "Aggression: ${"%.1f".format(avgStats.aggression)}"
+        binding.tvAvgScour.text = "Scour: ${"%.1f".format(avgStats.scour)}"
+        binding.tvAvgInspire.text = "Inspire: ${"%.1f".format(avgStats.inspire)}"
     }
 
     override fun onDestroyView() {
