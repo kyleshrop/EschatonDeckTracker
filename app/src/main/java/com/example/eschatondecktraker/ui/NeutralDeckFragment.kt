@@ -35,7 +35,12 @@ class NeutralDeckFragment : Fragment() {
         playerDeck = PlayerDeck.getInstance()
         
         val monsterCards = MonsterCardBase.MonsterName.values()
-            .map { MonsterCardBase.create(it) }
+            .map { 
+                val card = MonsterCardBase.create(it)
+                // Check if this monster is already owned and mark it accordingly
+                val isOwned = playerDeck.getAllCards().any { it.monsterName == card.monsterName }
+                card.copy(isOwned = isOwned)
+            }.toMutableList()
         
         adapter = DeckCardAdapter(monsterCards) { card ->
             if (!isMonsterAlreadyOwned(card)) {
@@ -66,6 +71,9 @@ class NeutralDeckFragment : Fragment() {
             .filter { it.monsterName != null }
             .toSet()
         adapter.setDisabledCards(ownedMonsters)
+        
+        // Update the card ownership status for display
+        adapter.updateCardOwnership(playerDeck.getAllCards())
     }
     
     private fun getCardName(card: Card): String {

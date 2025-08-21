@@ -37,6 +37,7 @@ class CultistDeckFragment : Fragment() {
         val cultistCards = CultistCardBase.CultistName.values()
             .filter { it != CultistCardBase.CultistName.Null }
             .map { CultistCardBase.create(it) }
+            .toMutableList()
         
         adapter = DeckCardAdapter(cultistCards) { card ->
             playerDeck.addCard(card)

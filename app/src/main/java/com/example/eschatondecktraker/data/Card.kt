@@ -20,10 +20,17 @@ data class Card(
                 CultistCardBase.CultistName.Marauder -> "maurader"
                 else -> cultistName.name.lowercase()
             }
-            monsterName != null -> when (monsterName) {
-                MonsterCardBase.MonsterName.Crone1 -> "crone"
-                MonsterCardBase.MonsterName.Crone2 -> "crone"
-                else -> monsterName.name.lowercase()
+            monsterName != null -> {
+                // If monster card has been drawn/added, show card back
+                if (isOwned) {
+                    "card_back"
+                } else {
+                    when (monsterName) {
+                        MonsterCardBase.MonsterName.Crone1 -> "crone"
+                        MonsterCardBase.MonsterName.Crone2 -> "crone"
+                        else -> monsterName.name.lowercase()
+                    }
+                }
             }
             else -> "card_back"
         }

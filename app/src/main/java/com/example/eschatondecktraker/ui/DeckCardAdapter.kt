@@ -7,7 +7,7 @@ import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.databinding.ItemDeckCardBinding
 
 class DeckCardAdapter(
-    private val cards: List<Card>,
+    private val cards: MutableList<Card>,
     private val onCardClick: (Card) -> Unit
 ) : RecyclerView.Adapter<DeckCardAdapter.ViewHolder>() {
     
@@ -15,6 +15,18 @@ class DeckCardAdapter(
     
     fun setDisabledCards(cards: Set<Card>) {
         disabledCards = cards.toMutableSet()
+        notifyDataSetChanged()
+    }
+    
+    fun updateCardOwnership(ownedCards: List<Card>) {
+        // Update the ownership status of cards in the adapter
+        for (i in cards.indices) {
+            val card = cards[i]
+            val isOwned = ownedCards.any { it.monsterName == card.monsterName }
+            if (card.isOwned != isOwned) {
+                cards[i] = card.copy(isOwned = isOwned)
+            }
+        }
         notifyDataSetChanged()
     }
     
@@ -28,8 +40,12 @@ class DeckCardAdapter(
             
             binding.tvCardName.text = cardName
             
-            val cost = card.cost?.value ?: 0
-            binding.tvCardCost.text = "Cost: $cost"
+            // Only show cost for cultist cards, not monster cards
+            if (card.cost != null) {
+                binding.tvCardCost.text = "Cost: ${card.cost.value}"
+            } else {
+                binding.tvCardCost.text = ""
+            }
             
             // Set card image based on card name
             val resourceName = card.getImageName()
