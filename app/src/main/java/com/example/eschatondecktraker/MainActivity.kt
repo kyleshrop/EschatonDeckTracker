@@ -22,9 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        try {
+            val navController = findNavController(R.id.nav_host_fragment_content_main)
+            appBarConfiguration = AppBarConfiguration(navController.graph)
+            setupActionBarWithNavController(navController, appBarConfiguration)
+        } catch (e: IllegalStateException) {
+            // NavController not ready yet, this can happen during initialization
+            // The navigation will still work, just without the up button support
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,8 +45,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        return try {
+            val navController = findNavController(R.id.nav_host_fragment_content_main)
+            navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        } catch (e: IllegalStateException) {
+            super.onSupportNavigateUp()
+        }
     }
 }
