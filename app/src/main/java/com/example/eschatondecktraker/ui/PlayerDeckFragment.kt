@@ -1,7 +1,7 @@
 package com.example.eschatondecktraker.ui
 
-import CultistDeck
-import Hand
+import com.example.eschatondecktraker.CultistDeck
+import com.example.eschatondecktraker.Hand
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

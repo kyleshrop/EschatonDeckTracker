@@ -1,6 +1,6 @@
 package com.example.eschatondecktraker.ui
 
-import CultistDeck
+import com.example.eschatondecktraker.CultistDeck
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

@@ -10,5 +10,5 @@ data class Card(
     val aggression: CardAttributes.Aggression,
     val scour: CultistCardBase.Scour?,
     val inspire: CardAttributes.Inspire,
-    val pointValue1: CardAttributes.PointValue?,
+    val pointValue: CardAttributes.PointValue?,
 )

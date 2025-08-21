@@ -1,3 +1,5 @@
+package com.example.eschatondecktraker
+
 import com.example.eschatondecktraker.data.Card
 import com.example.eschatondecktraker.data.CultistCardBase
 

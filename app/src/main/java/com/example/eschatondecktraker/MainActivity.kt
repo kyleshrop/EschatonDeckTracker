@@ -1,10 +1,10 @@
 package com.example.eschatondecktraker
 
-import Hand
+import com.example.eschatondecktraker.Hand
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigatiot n.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
