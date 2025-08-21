@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_NeutralDeckFragment"
             app:destination="@id/NeutralDeckFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_SettingsFragment"
+            app:destination="@id/SettingsFragment" />
     </fragment>
     
     <fragment
@@ -52,6 +55,17 @@
 
         <action
             android:id="@+id/action_NeutralDeckFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="com.example.eschatondecktraker.ui.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings">
+
+        <action
+            android:id="@+id/action_SettingsFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>
