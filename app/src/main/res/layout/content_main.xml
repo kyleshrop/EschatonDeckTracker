@@ -5,15 +5,6 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <fragment
-        android:id="@+id/fragment_player_deck"
-        android:name="com.example.eschatondecktraker.ui.PlayerDeckFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+    <!-- This layout file is no longer used since navigation is handled in activity_main.xml -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
