@@ -43,7 +43,7 @@ class PlayerHandAdapter(
         cardDetails.append("Aggression: ${card.aggression.value}\n")
         cardDetails.append("Scour: ${card.scour?.value ?: "N/A"}\n")
         cardDetails.append("Inspire: ${card.inspire.value}\n")
-        cardDetails.append("PointValue: ${card.pointValue1?.value}")
+        cardDetails.append("PointValue: ${card.pointValue.value}")
 
 
         holder.cardAttributes.text = cardDetails.toString()

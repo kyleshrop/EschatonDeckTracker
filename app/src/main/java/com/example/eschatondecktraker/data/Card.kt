@@ -10,5 +10,22 @@ data class Card(
     val aggression: CardAttributes.Aggression,
     val scour: CultistCardBase.Scour?,
     val inspire: CardAttributes.Inspire,
-    val pointValue1: CardAttributes.PointValue?,
-)
+    val pointValue: CardAttributes.PointValue,
+    var isDrawn: Boolean = false,
+    var isOwned: Boolean = false
+) {
+    fun getImageName(): String {
+        return when {
+            cultistName != null -> when (cultistName) {
+                CultistCardBase.CultistName.Marauder -> "maurader"
+                else -> cultistName.name.lowercase()
+            }
+            monsterName != null -> when (monsterName) {
+                MonsterCardBase.MonsterName.Crone1 -> "crone"
+                MonsterCardBase.MonsterName.Crone2 -> "crone"
+                else -> monsterName.name.lowercase()
+            }
+            else -> "card_back"
+        }
+    }
+}

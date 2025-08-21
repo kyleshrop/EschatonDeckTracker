@@ -3,26 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_player_deck">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/fragment_player_deck"
-        android:name="com.example.eschatondecktraker.ui.PlayerDeckFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/player_deck_fregment">
+        android:id="@+id/HomeFragment"
+        android:name="com.example.eschatondecktraker.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_HomeFragment_to_PlayerDeckFragment"
+            app:destination="@id/PlayerDeckFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_CultistDeckFragment"
+            app:destination="@id/CultistDeckFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_NeutralDeckFragment"
+            app:destination="@id/NeutralDeckFragment" />
     </fragment>
+    
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.eschatondecktraker.ui.ConclaveStoreFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/conclave_store_fragment">
+        android:id="@+id/PlayerDeckFragment"
+        android:name="com.example.eschatondecktraker.ui.PlayerDeckFragment"
+        android:label="My Deck"
+        tools:layout="@layout/fragment_player_deck">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/fragment_player_deck" />
+            android:id="@+id/action_PlayerDeckFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/CultistDeckFragment"
+        android:name="com.example.eschatondecktraker.ui.CultistDeckFragment"
+        android:label="Cultist Deck"
+        tools:layout="@layout/fragment_cultist_deck">
+
+        <action
+            android:id="@+id/action_CultistDeckFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/NeutralDeckFragment"
+        android:name="com.example.eschatondecktraker.ui.NeutralDeckFragment"
+        android:label="Neutral Deck"
+        tools:layout="@layout/fragment_neutral_deck">
+
+        <action
+            android:id="@+id/action_NeutralDeckFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>

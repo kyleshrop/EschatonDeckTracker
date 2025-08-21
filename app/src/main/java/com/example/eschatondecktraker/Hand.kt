@@ -1,5 +1,6 @@
-import com.example.eschatondecktraker.data.Card
+package com.example.eschatondecktraker
 
+import com.example.eschatondecktraker.data.Card
 import kotlin.random.Random
 
 class Hand {

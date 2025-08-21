@@ -29,7 +29,6 @@ class CultistCardBase {
                 CultistName.Pontiff -> Card(cultistName, null, Cost.Six, Zeal.One, Divination.One, Influence.Three, Aggression.Zero, Scour.Zero, Inspire.Zero, PointValue.Zero)
                 CultistName.Archon -> Card(cultistName, null, Cost.Six, Zeal.Zero, Divination.Zero, Influence.Zero, Aggression.Four, Scour.Zero, Inspire.Two, PointValue.Zero)
                 CultistName.Null -> Card(cultistName, null, Cost.One, Zeal.Zero, Divination.Zero, Influence.Zero, Aggression.Zero, Scour.Zero, Inspire.Zero, PointValue.Zero)
-                else -> throw IllegalArgumentException("Undefined attributes for $cultistName")
             }
         }
     }

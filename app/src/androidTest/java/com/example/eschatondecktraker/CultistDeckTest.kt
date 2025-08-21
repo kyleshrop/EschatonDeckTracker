@@ -1,8 +1,6 @@
 import com.example.eschatondecktraker.data.CultistCardBase
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNotNull
-import org.junit.Assert.assertNotEquals
-import org.junit.jupiter.api.Test
+import org.junit.Assert.*
+import org.junit.Test
 
 class CultistDeckTest {
 

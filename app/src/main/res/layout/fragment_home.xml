@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eschaton Deck Tracker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/darker_gray"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Deck Stats"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvZeal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Zeal: 0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvDivination"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Divination: 0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvInfluence"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Influence: 0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvAggression"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Aggression: 0"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvScour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Scour: 0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvInspire"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Inspire: 0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvPointValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Point Value: 0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvTotalCards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cards Remaining: 0"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnViewDeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View My Deck"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnCultistDeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cultist Deck"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnNeutralDeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Neutral Deck"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</ScrollView>
