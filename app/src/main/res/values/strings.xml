@@ -28,6 +28,12 @@
     <string name="draft_mode_description">Choose whether to start with default cards or an empty deck</string>
     <string name="draft_to_start_label">Draft to Start:</string>
     <string name="draft_to_start_description">Start with an empty deck instead of default cards</string>
+    
+    <!-- Draft Mode Change Dialog -->
+    <string name="draft_mode_change_title">Draft Mode Changed</string>
+    <string name="draft_mode_change_message">You have changed the draft mode setting. Would you like to clear your current deck to reflect this change?</string>
+    <string name="clear_and_continue">Clear Deck</string>
+    <string name="back_to_home">Back to Home</string>
 
 
 

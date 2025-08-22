@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.eschatondecktraker.R
+import com.example.eschatondecktraker.data.PlayerDeck
 import com.example.eschatondecktraker.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -17,6 +20,9 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
     
     private lateinit var sharedPreferences: SharedPreferences
+    private var initialDraftMode: Boolean = false
+    private var currentDraftMode: Boolean = false
+    private lateinit var onBackPressedCallback: OnBackPressedCallback
     
     companion object {
         const val PREFS_NAME = "EschatonDeckTrackerPrefs"
@@ -40,9 +46,14 @@ class SettingsFragment : Fragment() {
         
         sharedPreferences = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         
+        // Store initial draft mode state
+        initialDraftMode = sharedPreferences.getBoolean(KEY_DRAFT_MODE, false)
+        currentDraftMode = initialDraftMode
+        
         setupThemeControls()
         setupDraftModeControls()
         setupBackButton()
+        setupBackPressedCallback()
     }
     
     private fun setupThemeControls() {
@@ -80,6 +91,8 @@ class SettingsFragment : Fragment() {
         
         // Set up switch listener
         binding.draftModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            // Update current state
+            currentDraftMode = isChecked
             // Save preference
             sharedPreferences.edit().putBoolean(KEY_DRAFT_MODE, isChecked).apply()
         }
@@ -87,7 +100,7 @@ class SettingsFragment : Fragment() {
     
     private fun setupBackButton() {
         binding.backButton.setOnClickListener {
-            findNavController().navigateUp()
+            handleNavigation()
         }
     }
     
@@ -99,6 +112,46 @@ class SettingsFragment : Fragment() {
             else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
         }
         AppCompatDelegate.setDefaultNightMode(mode)
+    }
+    
+    private fun setupBackPressedCallback() {
+        onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                handleNavigation()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
+    }
+    
+    private fun handleNavigation() {
+        if (initialDraftMode != currentDraftMode) {
+            showDraftModeChangeDialog()
+        } else {
+            findNavController().navigateUp()
+        }
+    }
+    
+    private fun showDraftModeChangeDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.draft_mode_change_title)
+            .setMessage(R.string.draft_mode_change_message)
+            .setPositiveButton(R.string.clear_and_continue) { _, _ ->
+                clearPlayerDeckAndNavigate()
+            }
+            .setNegativeButton(R.string.back_to_home) { _, _ ->
+                navigateToHome()
+            }
+            .setCancelable(false)
+            .show()
+    }
+    
+    private fun clearPlayerDeckAndNavigate() {
+        PlayerDeck.getInstance(requireContext()).clearDeck()
+        navigateToHome()
+    }
+    
+    private fun navigateToHome() {
+        findNavController().navigate(R.id.action_SettingsFragment_to_HomeFragment)
     }
     
     override fun onDestroyView() {
